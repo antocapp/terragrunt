@@ -1,3 +1,5 @@
+# How to use Terragrunt to manage multiple environments in AWS
+
 ## Introduction
 
 Infrastructure as code (IAC) is the practice of managing and provisioning infrastructure using code rather than manual processes. This approach enables teams to manage infrastructure more efficiently, consistently, and reliably. Terragrunt is an open-source tool that helps teams manage infrastructure as code in AWS. In this article, we'll show you how to use Terragrunt with Github Packages and Github Actions to manage infrastructure in AWS.
