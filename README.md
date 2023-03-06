@@ -9,7 +9,8 @@ Infrastructure as code (IAC) is the practice of managing and provisioning infras
 Before we can use Terragrunt with Github Actions, we need to build and push a Terragrunt image to Github Packages. Github Packages is a package hosting service that allows you to publish and share packages with other developers. To build the Terragrunt image, we'll use a Dockerfile that installs the necessary dependencies and packages. Once the image is built, we'll push it to Github Packages so that we can use it in our Github Actions workflow.
 
 ```bash
-docker buildx build --platform=linux/amd64 -t ghcr.io/antocapp/terraform -f ./Dockerfile --build-arg TERRAFORM_VERSION=1.1.6 .
+export GH_USERNAME=antocapp
+docker buildx build --platform=linux/amd64 -t ghcr.io/$GH_USERNAME/terraform -f ./Dockerfile --build-arg TERRAFORM_VERSION=1.1.6 .
 ```
 
 ```bash
