@@ -26,7 +26,7 @@ module "demo_lambda" {
   s3_prefix      = "demo-lambda/"
 
   source_path = [{
-    path             = "/app/src/demo-lambda"
+    path             = "/app/src/demo-lambda/"
     pip_requirements = "/app/src/demo-lambda/requirements.txt"
     patterns = [
       "!tests/.*",
