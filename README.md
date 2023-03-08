@@ -106,6 +106,10 @@ Finally, we'll run an example that demonstrates how to use Terragrunt to manage 
 
 Github Actions are triggered in our case by just pushing to `staging` or `main` branches. Let's start with `staging`.
 
+![Staging Workflow](./static-images/secrets.png?raw=true)
+
+Once the changes are applied, this workflow will open a PR to merge this into `main` branch and trigger a deployment in `production` account.
+
 ## Conclusion
 
 In this article, we've shown you how to use Terragrunt with Github Packages and Github Actions to manage infrastructure in AWS. We've covered the basics of building and pushing a Terragrunt image, writing a Github Actions workflow, and using Terragrunt code to define infrastructure resources. We've also demonstrated how to create a staging account in AWS and use Terragrunt to manage resources across multiple accounts. We hope this article has been helpful and that you'll try using Terragrunt with Github Packages and Github Actions to manage your infrastructure as code.
