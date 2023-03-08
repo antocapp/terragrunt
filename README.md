@@ -42,6 +42,12 @@ In your organization, create a new account called `staging`. You should see some
 
 Please keep in mind the staging account id (the number right below the staging account), as it will be needed in the repository secrets for the Github Actions to run.
 
+## Create an S3 bucket to store TF State files
+
+In order for Terraform to store state files remotely, you need to create a bucket in both `production` and `staging` accounts. This has to have the same name you write in the `terragrunt.hcl` files for both these environments, and must belong to the region of your choice.
+
+![S3 Bucket TF Files](./static-images/create-tf-bucket.png?raw=true)
+
 ## Add AWS credentials as Actions Secrets
 
 In order to let Terragrunt deploy on production and staging (by assuming the staging role), you need to generate the credentials for a user in the IAM page. Once you have these credentials, you have to store them in the repository Actions Secrets at this url: `https://github.com/{USERNAME}/{REPO}/settings/secrets/actions`.
@@ -105,6 +111,10 @@ This will create a component only if the environment is `prod`.
 Finally, we'll run an example that demonstrates how to use Terragrunt to manage infrastructure in both the staging and production accounts. We'll define a Lambda function and a scheduled event in the production account, and a Lambda function in the staging account. We'll use Terragrunt to apply the infrastructure changes to each account and verify that the resources are created as expected.
 
 Github Actions are triggered in our case by just pushing to `staging` or `main` branches. Let's start with `staging`.
+
+![Staging Workflow](./static-images/secrets.png?raw=true)
+
+Once the changes are applied, this workflow will open a PR to merge this into `main` branch and trigger a deployment in `production` account.
 
 ## Conclusion
 

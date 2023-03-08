@@ -23,27 +23,14 @@ module "demo_lambda" {
   create_package = true
   store_on_s3    = true
   s3_bucket      = aws_s3_bucket.demo_lambda_functions.id
-  s3_prefix      = "fetch-lambda/"
+  s3_prefix      = "demo-lambda/"
 
   source_path = [{
-    path             = "/app/src/demo-lambda"
+    path             = "/app/src/demo-lambda/"
     pip_requirements = "/app/src/demo-lambda/requirements.txt"
     patterns = [
       "!tests/.*",
       "!__pycache__/.*",
     ]
   }]
-}
-
-resource "aws_lambda_alias" "fetch_function_alias" {
-  name             = "prod"
-  description      = "Production alias"
-  function_name    = module.fetch_function.lambda_function_name
-  function_version = module.fetch_function.lambda_function_version
-}
-
-resource "aws_lambda_function_url" "fetch_function_url" {
-  function_name      = module.fetch_function.lambda_function_name
-  authorization_type = "NONE"
-  qualifier = aws_lambda_alias.fetch_function_alias.name
 }

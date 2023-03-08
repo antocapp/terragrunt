@@ -34,7 +34,7 @@ jobs:
           -e "AWS_REGION=$AWS_REGION" \
           -e "TERRAGRUNT_IAM_ROLE=$TERRAGRUNT_IAM_ROLE" \
           -w "/app/infrastructure/environments/$ENVIRONMENT" \
-          ghcr.io/audiens/terraform:latest \
+          ghcr.io/antocapp/terraform:latest \
           apply -auto-approve
 
   Open-Pull-Request-For-Production:
