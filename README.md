@@ -116,6 +116,7 @@ Github Actions are triggered in our case by just pushing to `staging` or `main` 
 
 Once the changes are applied, this workflow will open a PR to merge this into `main` branch and trigger a deployment in `production` account.
 
+
 Lambda in `staging` has been successfully created:
 
 ![Lambda Staging](./static-images/lambda-staging.png?raw=true)
