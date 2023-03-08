@@ -34,16 +34,3 @@ module "demo_lambda" {
     ]
   }]
 }
-
-resource "aws_lambda_alias" "fetch_function_alias" {
-  name             = "prod"
-  description      = "Production alias"
-  function_name    = module.fetch_function.lambda_function_name
-  function_version = module.fetch_function.lambda_function_version
-}
-
-resource "aws_lambda_function_url" "fetch_function_url" {
-  function_name      = module.fetch_function.lambda_function_name
-  authorization_type = "NONE"
-  qualifier = aws_lambda_alias.fetch_function_alias.name
-}

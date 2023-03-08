@@ -12,7 +12,6 @@ resource "aws_cloudwatch_event_rule" "scheduled_event_demo_lambda_trigger" {
   name                = "DemoLambdaTrigger"
   description         = "Run demo lambda"
   schedule_expression = "cron(0 0 * * ? *)" #every day at midnight
-  tags                = local.tags
   is_enabled          = var.environment == "prod"
 }
 
