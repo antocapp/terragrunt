@@ -9,3 +9,7 @@ variable "environment" {
 variable "remote_state_bucket_name" {
   description = "Remote state bucket name"
 }
+
+variable "bucket_prefix" {
+  description = "bucket prefix"
+}
