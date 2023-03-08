@@ -42,6 +42,12 @@ In your organization, create a new account called `staging`. You should see some
 
 Please keep in mind the staging account id (the number right below the staging account), as it will be needed in the repository secrets for the Github Actions to run.
 
+## Create an S3 bucket to store TF State files
+
+In order for Terraform to store state files remotely, you need to create a bucket in both `production` and `staging` accounts. This has to have the same name you write in the `terragrunt.hcl` files for both these environments, and must belong to the region of your choice.
+
+![S3 Bucket TF Files](./static-images/create-tf-bucket.png?raw=true)
+
 ## Add AWS credentials as Actions Secrets
 
 In order to let Terragrunt deploy on production and staging (by assuming the staging role), you need to generate the credentials for a user in the IAM page. Once you have these credentials, you have to store them in the repository Actions Secrets at this url: `https://github.com/{USERNAME}/{REPO}/settings/secrets/actions`.

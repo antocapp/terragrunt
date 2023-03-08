@@ -3,7 +3,7 @@ remote_state {
   backend = "s3"
 
   config = {
-    bucket = "antoniocappiello-tf-remote-state"
+    bucket = "staging.antoniocappiello-tf-remote-state"
     key = "terragrunt-demo/terraform.tfstate"
     region = "eu-west-1"
 
@@ -18,7 +18,7 @@ include {
 # Configure root level variables that all resources can inherit
 inputs = {
   environment = "staging"
-  bucket_prefix = ""
+  bucket_prefix = "staging."
 
   remote_state_bucket_name = "antoniocappiello-tf-remote-state"
 
