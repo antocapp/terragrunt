@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Infrastructure as code (IAC) is the practice of managing and provisioning infrastructure using code rather than manual processes. This approach enables teams to manage infrastructure more efficiently, consistently, and reliably. Terragrunt is an open-source tool that helps teams manage infrastructure as code in AWS. In this article, we'll show you how to use Terragrunt with Github Packages and Github Actions to manage multiple environments in AWS.
+Infrastructure as code (IAC) is the practice of managing and provisioning infrastructure using code rather than manual processes. This approach enables teams to manage infrastructure more efficiently, consistently, and reliably. Terragrunt is an open-source tool that helps teams manage infrastructure as code in AWS. In this article, I'll show you how to use Terragrunt with Github Packages and Github Actions to manage multiple environments in AWS.
 
 ## Build and Push Terragrunt Image on Github Packages
 
@@ -116,6 +116,19 @@ Github Actions are triggered in our case by just pushing to `staging` or `main` 
 
 Once the changes are applied, this workflow will open a PR to merge this into `main` branch and trigger a deployment in `production` account.
 
+
+Lambda in `staging` has been successfully created:
+
+![Lambda Staging](./static-images/lambda-staging.png?raw=true)
+
+And a PR was successfully opened from `staging` to `main`. Let's approve it:
+
+![Open PR](./static-images/open-pr.png?raw=true)
+
+The infrastructure was successfully deployed in my production account, and as you can see now the Lambda has the Cloudwatch Event trigger.
+
+![Lambda prod](./static-images/lambda-prod.png?raw=true)
+
 ## Conclusion
 
-In this article, we've shown you how to use Terragrunt with Github Packages and Github Actions to manage infrastructure in AWS. We've covered the basics of building and pushing a Terragrunt image, writing a Github Actions workflow, and using Terragrunt code to define infrastructure resources. We've also demonstrated how to create a staging account in AWS and use Terragrunt to manage resources across multiple accounts. We hope this article has been helpful and that you'll try using Terragrunt with Github Packages and Github Actions to manage your infrastructure as code.
+In this article, we've shown you how to use Terragrunt with Github Packages and Github Actions to manage multiple environments in AWS. We've covered the basics of building and pushing a Terragrunt image, writing a Github Actions workflow, and using Terragrunt code to define infrastructure resources. We've also demonstrated how to create a staging account in AWS and use Terragrunt to manage resources across multiple accounts. We hope this article has been helpful and that you'll try using Terragrunt with Github Packages and Github Actions to manage your infrastructure as code.
